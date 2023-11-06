@@ -4,7 +4,7 @@
 
 $baseurl: '{{ site.baseurl }}/images';
 
-/*@import 'libs/vars';*/
+@import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
 @import 'font-awesome.min.css';
