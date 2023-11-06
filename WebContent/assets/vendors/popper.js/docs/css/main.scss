@@ -1,6 +1,6 @@
----
+/*---
 # Only the main Sass file needs front matter (the dashes are enough)
----
+---*/
 
 $baseurl: '{{ site.baseurl }}/images';
 
@@ -348,7 +348,7 @@ textarea {
 }
 
 input[type="checkbox"],
-input[type="radio"], {
+/*input[type="radio"], {
 	@include vendor('appearance', 'none');
 	display: block;
 	float: left;
@@ -396,7 +396,7 @@ input[type="radio"], {
 			box-shadow: 0 0 0 2px _palette(accent1, bg);
 		}
 	}
-}
+}*/
 
 input[type="checkbox"] {
 	& + label {
@@ -1124,7 +1124,7 @@ button,
 	}
 
 	input[type="checkbox"],
-	input[type="radio"], {
+/*	input[type="radio"], {
 		& + label {
 			color: _palette($p, fg);
 
@@ -1139,7 +1139,7 @@ button,
 				color: _palette($p, bg);
 			}
 		}
-	}
+	}*/
 
 	::-webkit-input-placeholder {
 		color: _palette($p, fg-light) !important;
