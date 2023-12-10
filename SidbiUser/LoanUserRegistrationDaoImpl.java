@@ -1,4 +1,4 @@
-package com.sidbi.dao.Impl;
+package com.jci.dao.impl_phase2;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sidbi.dao.LoanUserRegistrationDao;
-import com.sidbi.model.SidbiUserRegistration;
+import com.jci.dao_phase2.LoanUserRegistrationDao;
+import com.jci.model.EntryofpcsoModel;
+import com.jci.model.SidbiUserRegistration;
 
 @Repository
 @Transactional
@@ -49,7 +50,7 @@ public class LoanUserRegistrationDaoImpl implements LoanUserRegistrationDao {
 
 	@Override
 	public List<Integer> loadAllBankApproved() {
-		String sqlString = "select userId from SidbiUserRegistration where BankStatus = 1";
+		String sqlString = "select userId from sidbiUserRegistration where BankStatus = 1";
 		 List<Integer> list =  currentSession().createSQLQuery(sqlString).list();
 		 return list;
 	}
@@ -62,7 +63,7 @@ public class LoanUserRegistrationDaoImpl implements LoanUserRegistrationDao {
 
 	@Override
 	public List<Object[]> getAllSentSidbi() {
-		String sqlString = "select * from SidbiUserRegistration where sentToSidbiStatus = 1";
+		String sqlString = "select * from sidbiUserRegistration where sentToSidbiStatus = 1";
 		 List<Object[]> list =  currentSession().createSQLQuery(sqlString).list();
 		 return list;
 	}

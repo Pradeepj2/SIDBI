@@ -193,15 +193,19 @@
 							class="icon-columns menu-icon"></i> <span class="menu-title">Pending
 								Request</span>
 					</a></li>
-					<% if(roleType.equals("Manager")) {%>
-					
+					<%
+					if (roleType.equals("Manager")) {
+					%>
+
 					<li class="nav-item"><a class="nav-link"
 						href="LoadAllApprovedBank.obj"> <i
 							class="icon-columns menu-icon"></i> <span class="menu-title">Approved
 								PFI </span>
 					</a></li>
-					
-					<%} %>
+
+					<%
+					}
+					%>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#charts" aria-expanded="false"
 						aria-controls="charts"> <i class="icon-bar-graph menu-icon"></i>
@@ -292,7 +296,7 @@
 												<th>Desired Amount</th>
 												<th>Bank Name</th>
 												<th>Bank Status</th>
-												<th>Loan Status</th>
+
 											</tr>
 										</thead>
 										<tbody>
@@ -310,15 +314,6 @@
 												<td>
 													<%
 													if (requestEl.getBankStatus() == 1) {
-														out.print("Approved");
-													} else {
-														out.println("Pending");
-													}
-													%>
-												</td>
-												<td>
-													<%
-													if (requestEl.getSidbiStatus() == 1) {
 														out.print("Approved");
 													} else {
 														out.println("Pending");

@@ -1740,7 +1740,9 @@ body.fullscreen-mode {
   display: block;
   font-size: 13px;
   margin-bottom: 0;
-  margin-top: 2px; }
+  color: red;
+  margin-top: 68px;
+   }
 
 .input-group-icon {
   position: relative;

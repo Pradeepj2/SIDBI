@@ -57,31 +57,49 @@ public class BankRegistrationDaoImpl implements BankRegistrationDao {
 
 	@Override
 	public List<Object[]> getAllUserOfBank(String bank) {
-		String sqlString = "select * from sidbiUserRegistration where bankName='" + bank + "'";
+		String sqlString = "select * from SidbiUserRegistration where bankName='" + bank + "' and BankStatus = 1";
 		List<Object[]> list = currentSession().createSQLQuery(sqlString).list();
-		return list;
+		return list; 
 	}
 
 	@Override
 	public List<Long> countRequestofPfi() {
-		String totelLoanDis = "select SUM(DesiredLoanAmount) from sidbiUserRegistration where BankStatus=1";
-		String sqlStringforApproved = "select count(approved) from bankregistration where approved = 1";
-		String sqlStringforunApproved = "select count(approved) from bankregistration where approved = 0";
-		String sqlStringforPCG = "select count(applyFor) from bankregistration where applyFor = 'Onlanding'";
-		String sqlStringforOnlendingString = "select count(applyFor) from bankregistration where applyFor = 'PCG'";
-		long c1 = ((Number) currentSession().createSQLQuery(sqlStringforApproved).uniqueResult()).longValue();
-		long c2 = ((Number) currentSession().createSQLQuery(sqlStringforunApproved).uniqueResult()).longValue();
-		long c3 = ((Number) currentSession().createSQLQuery(sqlStringforPCG).uniqueResult()).longValue();
-		long c4 = ((Number) currentSession().createSQLQuery(sqlStringforOnlendingString).uniqueResult()).longValue();
-		long c5 = ((Number) currentSession().createSQLQuery(totelLoanDis).uniqueResult()).longValue();
+		String totelLoanDis = "select SUM(DesiredLoanAmount) from SidbiUserRegistration where BankStatus=1";
+		String sqlStringforApproved = "select count(approved) from BankRegistration where approved = 1";
+		String sqlStringforunApproved = "select count(approved) from BankRegistration where approved = 0";
+		String sqlStringforPCG = "select count(applyFor) from BankRegistration where applyFor = 'Onlanding'";
+		String sqlStringforOnlendingString = "select count(applyFor) from BankRegistration where applyFor = 'PCG'";
+
+		Number c1 = ((Number) currentSession().createSQLQuery(sqlStringforApproved).uniqueResult());
+
+		Number c2 = ((Number) currentSession().createSQLQuery(sqlStringforunApproved).uniqueResult());
+		Number c3 = ((Number) currentSession().createSQLQuery(sqlStringforPCG).uniqueResult());
+		Number c4 = ((Number) currentSession().createSQLQuery(sqlStringforOnlendingString).uniqueResult());
+		Number c5 = ((Number) currentSession().createSQLQuery(totelLoanDis).uniqueResult());
+
+		if (c1 == null) {
+			c1 = 0;
+		}
+		if (c2 == null) {
+			c2 = 0;
+		}
+		if (c3 == null) {
+			c3 = 0;
+		}
+		if (c4 == null) {
+			c4 = 0;
+		}
+		if (c5 == null) {
+			c5 = 0;
+		}
 
 		List<Long> list = new ArrayList<Long>();
 
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
-		list.add(c4);
-		list.add(c5);
+		list.add(c1.longValue());
+		list.add(c2.longValue());
+		list.add(c3.longValue());
+		list.add(c4.longValue());
+		list.add(c5.longValue());
 
 		return list;
 	}

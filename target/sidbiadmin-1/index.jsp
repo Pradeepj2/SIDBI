@@ -16,13 +16,21 @@
 <link href="assets/css/main.css" rel="stylesheet" />
 <!-- PAGE LEVEL STYLES-->
 <link href="./assets/css/pages/auth-light.css" rel="stylesheet" />
+
+<style>
+.error{
+  border : 1px solid red;
+}
+
+</style>
+
 </head>
-<body style="background-color:white">
+<body style="background-color: white">
 	<form id="login-form" action="loginAction.obj" method="post">
 		<div
 			style="width: 100%; height: 100%; position: relative; background: #FFFEF9">
 			<div
-				style="width: 731px; height: 100vh; left: 0px; top: 0px; position: absolute; background: #fac118"></div>
+				style="width: 50vw; height: 100vh; left: 0px; top: 0px; position: absolute; background: #fac118"></div>
 			<div style="width: 539px; left: 450px; top: 79px; position: absolute">
 				<div style="width: 539px; left: 0px; top: 0px; position: absolute">
 					<div
@@ -30,9 +38,11 @@
 					<div
 						style="width: 459px; height: 48px; left: 17px; top: 15px; position: absolute">
 						<div
-							style="left: 0px; top: 3px; position: absolute; color: black; font-size: 20px; font-family: serif; font-weight: 400; word-wrap: break-word">Welcome
-							to Sidbi</div>
-						<div
+							style="left: 0px; top: 3px; position: absolute; color: black; font-size: 20px; font-family: serif; font-weight: 400; word-wrap: break-word">
+							Welcome to <img src="images/logo.png"
+								style="width: 70px; height: 36px; position: absolute; top: -8px; right: -76px;" />
+						</div>
+						<!-- <div
 							style="width: 124px; left: 288px; top: 0px; position: absolute">
 							<span
 								style="color: #8D8D8D; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">No
@@ -40,7 +50,7 @@
 							</span><span
 								style="color: #B87514; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Sign
 								up</span>
-						</div>
+						</div> -->
 					</div>
 
 					<div style="background-color: red">
@@ -49,8 +59,10 @@
 							<div
 								style="left: 0px; top: 0px; position: absolute; color: black; font-size: 11px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Enter
 								your username or email address</div>
-							<div
+								<div>
+							<div class="emailvalid"
 								style="width: 327px; height: 47px; left: 0px; top: 24px; position: absolute; background: white; border-radius: 9px; border: 1px #4285F4 solid"></div>
+								</div>
 							<input type="email" autocomplete="off" name="email"
 								style="height: 19px; left: 20px; top: 36px; width: 85%; position: absolute; color: #808080; font-size: 16px; font-family: Poppins; font-weight: 300; word-wrap: break-word; outline: none; border: none"></input>
 						</div>
@@ -69,7 +81,7 @@
 							</div>
 						</div>
 						<button type="submit"
-							style="width: 327px; height: 47px; left: 44px; top: 341px; position: absolute;border:none">
+							style="width: 327px; height: 47px; left: 44px; top: 341px; position: absolute; border: none">
 							<div
 								style="width: 327px; height: 47px; left: 0px; top: 0px; position: absolute; background: #fac118; box-shadow: 0px 4px 19px rgba(119, 147, 65, 0.30); border-radius: 10px"></div>
 							<div
@@ -80,7 +92,7 @@
 				</div>
 			</div>
 			<div
-				style="left: 468px; top: 118px; position: absolute; color: black; font-size: 35px; font-family: serif; font-weight: 500; word-wrap: break-word">Sign
+				style="left: 468px; top: 131px; position: absolute; color: black; font-size: 39px; font-size: 45px; font-family: serif; font-weight: 500; word-wrap: break-word">Sign
 				in</div>
 
 
@@ -90,9 +102,13 @@
 			</div>
 			<div
 				style="width: 450px; height: 450px; left: 0px; top: 144px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-				<img style="width: 450px; height: 450px"
-					src="https://img.freepik.com/free-vector/online-banking_24908-60031.jpg?size=626&ext=jpg&ga=GA1.1.1144286941.1699093290&semt=ais" />
+				<img style="width: 450px; height: 450px" src="images/signup.png" />
 			</div>
+			<div
+				style="width: 450px; height: 450px; left: 865px; top: 120px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+				<img style="width: 400px; height: 400px" src="images/aajadi.png" />
+			</div>
+			a
 			<div
 				style="left: 42px; top: 31px; position: absolute; color: #C6553B; font-size: 80px; font-family: Poppins; font-weight: bolder; word-wrap: break-word">
 				<!-- 𐌔𐌉𐌃𐌁 -->
@@ -135,10 +151,10 @@
 					}
 				},
 				highlight : function(e) {
-					$(e).closest(".form-group").addClass("has-error")
+					$(".emailvalid").addClass("error")
 				},
 				unhighlight : function(e) {
-					$(e).closest(".form-group").removeClass("has-error")
+					$(e).closest(".emailvalid").removeClass("has-error")
 				},
 			});
 		});
